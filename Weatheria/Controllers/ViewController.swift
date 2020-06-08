@@ -23,13 +23,84 @@ class ViewController: UIViewController {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var cloudsLabel: UILabel!
-    @IBOutlet weak var uviLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    var weatherManager = WeatherManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        weatherManager.delegate = self
+        areaSearchBar.delegate = self
+        activityIndicatorView.isHidden = true
     }
-
-
 }
 
+// MARK: - UISearchBarDelegate
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        areaSearchBar.endEditing(true)
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        if areaSearchBar.text != "" {
+            return true
+        } else {
+            let nilAlert = UIAlertController(title: "Search Field Cannot Be Empty", message: "Please Fill Any City To Continue", preferredStyle: .alert)
+            nilAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            if let presented = self.presentedViewController {
+                presented.removeFromParent()
+            }
+
+            if presentedViewController == nil {
+                 self.present(nilAlert, animated: true, completion: nil)
+            }
+            
+            return false
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let cityName = areaSearchBar.text {
+            weatherManager.fetchWeather(of: cityName)
+        }
+    }
+}
+ // MARK: - WeatherManagerDelegate
+
+extension ViewController: WeatherManagerDelegate {
+    func didUpdateWeather(weather: WeatherModel) {
+        cityLabel.text = weather.city
+        tempLabel.text = String(weather.temp)
+        weatherImageView.image = UIImage(systemName: weather.conditionName)
+        descriptionLabel.text = weather.description
+        feelsLikeTempLabel.text = "Feels like \(String(weather.feelsLikeTemp))°"
+        minTempLabel.text = "\(String(weather.tempMin))°"
+        maxTempLabel.text = "\(String(weather.tempMax))°"
+//        sunriseLabel.text =
+//        sunsetLabel.text =
+        windSpeedLabel.text = "\(String(weather.wind)) m/s"
+        humidityLabel.text = "\(String(weather.humidity))%"
+        cloudsLabel.text = "\(String(weather.cloud))%"
+        pressureLabel.text = "\(String(weather.pressure)) hPa"
+    }
+    
+    func didNotFindWeather() {
+        let errorAlert = UIAlertController(title: "Error", message: "Area can't be found.", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(errorAlert, animated: true, completion: nil)
+    }
+    
+    func startSpinning() {
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
+    }
+    
+    func stopSpinning() {
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+    }
+}
