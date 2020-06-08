@@ -39,6 +39,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C4248AE248DE80600530EEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8CF93A0F248B447F0079126A /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8C4248AF248DE81B00530EEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8CF939FF248B447F0079126A = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +74,11 @@
 		8CF93A0A248B447F0079126A /* Weatheria */ = {
 			isa = PBXGroup;
 			children = (
+				8C4248AE248DE80600530EEE /* Controllers */,
+				8C4248AF248DE81B00530EEE /* Model */,
 				8CF93A0B248B447F0079126A /* AppDelegate.swift */,
 				8CF93A0D248B447F0079126A /* SceneDelegate.swift */,
 				8CF93A14248B44800079126A /* Assets.xcassets */,
-				8CF93A0F248B447F0079126A /* ViewController.swift */,
 				8CF93A11248B447F0079126A /* Main.storyboard */,
 				8CF93A16248B44800079126A /* LaunchScreen.storyboard */,
 				8CF93A19248B44800079126A /* Info.plist */,
