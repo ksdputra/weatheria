@@ -21,10 +21,28 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-J7-JzV">
                                 <rect key="frame" x="0.0" y="40" width="414" height="812"/>
                                 <subviews>
-                                    <searchBar opaque="NO" contentMode="redraw" searchBarStyle="minimal" placeholder="Search city e.g Paris" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOb-qP-sRO">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cCD-ek-Gbv">
                                         <rect key="frame" x="30" y="0.0" width="354" height="62.5"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65h-3G-bZh">
+                                                <rect key="frame" x="0.0" y="12" width="39" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="39" id="HOy-DN-2vX"/>
+                                                    <constraint firstAttribute="width" constant="39" id="eGx-3x-ifs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Button" backgroundImage="location.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="currentLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s46-EL-z6T"/>
+                                                </connections>
+                                            </button>
+                                            <searchBar opaque="NO" contentMode="redraw" searchBarStyle="minimal" placeholder="Search city e.g Paris" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOb-qP-sRO">
+                                                <rect key="frame" x="39" y="3" width="315" height="56"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-vr-Fjg">
                                         <rect key="frame" x="30" y="94.5" width="354" height="33.5"/>
                                         <subviews>
@@ -96,7 +114,7 @@
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3I4-ES-hWe">
                                                 <rect key="frame" x="183" y="-0.5" width="183" height="130.5"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -120,7 +138,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="M3P-JW-Kuh">
                                                                         <rect key="frame" x="0.0" y="1" width="17" height="22"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O4-xV-qCn">
                                                                         <rect key="frame" x="27" y="0.0" width="29" height="24"/>
@@ -146,7 +164,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunrise.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TtU-m0-VdA">
                                                                         <rect key="frame" x="0.0" y="-1.5" width="25.5" height="21"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="918-uM-oeE">
                                                                         <rect key="frame" x="33.5" y="0.0" width="49" height="21.5"/>
@@ -172,7 +190,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JV9-sm-LKO">
                                                                         <rect key="frame" x="0.0" y="2" width="21" height="18.5"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 m/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-5g-kIT">
                                                                         <rect key="frame" x="29" y="0.0" width="53.5" height="21.5"/>
@@ -198,7 +216,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-dd-Hsv">
                                                                         <rect key="frame" x="0.0" y="3" width="22" height="16"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao9-hG-erl">
                                                                         <rect key="frame" x="30" y="0.0" width="23" height="21.5"/>
@@ -229,7 +247,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-yg-WzJ">
                                                                         <rect key="frame" x="0.0" y="1" width="17" height="22"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yu3-MX-ZZ8">
                                                                         <rect key="frame" x="27" y="0.0" width="29" height="24"/>
@@ -255,7 +273,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-EB-J9D">
                                                                         <rect key="frame" x="0.0" y="-1.5" width="25.5" height="21"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTW-Bi-KkP">
                                                                         <rect key="frame" x="32.5" y="0.0" width="46" height="21.5"/>
@@ -281,7 +299,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lio-KG-8Bh">
                                                                         <rect key="frame" x="0.0" y="0.5" width="14" height="22"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYk-cC-XKv">
                                                                         <rect key="frame" x="22" y="0.0" width="34" height="21.5"/>
@@ -307,7 +325,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shift.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="m4T-VA-PxQ">
                                                                         <rect key="frame" x="0.0" y="1" width="21" height="19"/>
-                                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hPa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EED-H9-2zW">
                                                                         <rect key="frame" x="29" y="0.0" width="65" height="21.5"/>
@@ -326,9 +344,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cNS-vr-Fjg" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="30" id="0qd-tG-cfB"/>
+                                    <constraint firstItem="cCD-ek-Gbv" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="30" id="HZB-lb-lWX"/>
                                     <constraint firstAttribute="trailing" secondItem="cNS-vr-Fjg" secondAttribute="trailing" constant="30" id="JSL-0s-Mdb"/>
-                                    <constraint firstAttribute="trailing" secondItem="gOb-qP-sRO" secondAttribute="trailing" constant="30" id="JuA-0u-Sxl"/>
-                                    <constraint firstItem="gOb-qP-sRO" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="30" id="cnH-eM-ERX"/>
+                                    <constraint firstAttribute="trailing" secondItem="cCD-ek-Gbv" secondAttribute="trailing" constant="30" id="cKw-yg-leN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -348,6 +366,7 @@
                         <outlet property="areaSearchBar" destination="gOb-qP-sRO" id="pfz-E4-977"/>
                         <outlet property="cityLabel" destination="y6j-a1-Se4" id="uVE-1r-qx9"/>
                         <outlet property="cloudsLabel" destination="ao9-hG-erl" id="TMu-X1-y99"/>
+                        <outlet property="currentLocationButton" destination="65h-3G-bZh" id="1B7-rb-kjv"/>
                         <outlet property="descriptionLabel" destination="RY1-hy-fN2" id="m6a-c0-eyU"/>
                         <outlet property="feelsLikeTempLabel" destination="tZI-QU-u8i" id="T00-Oi-EQ5"/>
                         <outlet property="humidityLabel" destination="AYk-cC-XKv" id="gF0-Et-nNG"/>
@@ -370,6 +389,7 @@
         <image name="arrow.down" catalog="system" width="120" height="128"/>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="cloud.fill" catalog="system" width="128" height="84"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="shift.fill" catalog="system" width="128" height="106"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <image name="sunrise.fill" catalog="system" width="128" height="97"/>

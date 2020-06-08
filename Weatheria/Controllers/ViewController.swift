@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var areaSearchBar: UISearchBar!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -27,13 +29,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
         weatherManager.delegate = self
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
+        currentLocationButton.isHidden = true
+    }
+    @IBAction func currentLocationPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
     }
 }
 
@@ -67,6 +78,9 @@ extension ViewController: UISearchBarDelegate {
         if let cityName = areaSearchBar.text {
             weatherManager.fetchWeather(of: cityName)
         }
+        
+        areaSearchBar.text = ""
+        currentLocationButton.isHidden = false
     }
 }
  // MARK: - WeatherManagerDelegate
@@ -102,5 +116,23 @@ extension ViewController: WeatherManagerDelegate {
     func stopSpinning() {
         activityIndicatorView.isHidden = true
         activityIndicatorView.stopAnimating()
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+            currentLocationButton.isHidden = true
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }
