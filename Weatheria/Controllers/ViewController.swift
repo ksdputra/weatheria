@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cloudsLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var backgroundView: UIImageView!
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -42,9 +43,17 @@ class ViewController: UIViewController {
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
+
     @IBAction func currentLocationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -53,29 +62,13 @@ class ViewController: UIViewController {
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         areaSearchBar.endEditing(true)
-    }
-    
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        if areaSearchBar.text != "" {
-            return true
-        } else {
+        
+        if areaSearchBar.text == "" {
             let nilAlert = UIAlertController(title: "Search Field Cannot Be Empty", message: "Please Fill Any City To Continue", preferredStyle: .alert)
             nilAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-            if let presented = self.presentedViewController {
-                presented.removeFromParent()
-            }
-
-            if presentedViewController == nil {
-                 self.present(nilAlert, animated: true, completion: nil)
-            }
             
-            return false
-        }
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if let cityName = areaSearchBar.text {
+            self.present(nilAlert, animated: true, completion: nil)
+        } else if let cityName = areaSearchBar.text {
             weatherManager.fetchWeather(of: cityName)
         }
         
@@ -83,7 +76,8 @@ extension ViewController: UISearchBarDelegate {
         currentLocationButton.isHidden = false
     }
 }
- // MARK: - WeatherManagerDelegate
+
+// MARK: - WeatherManagerDelegate
 
 extension ViewController: WeatherManagerDelegate {
     func didUpdateWeather(weather: WeatherModel) {
@@ -100,6 +94,7 @@ extension ViewController: WeatherManagerDelegate {
         humidityLabel.text = "\(String(weather.humidity))%"
         cloudsLabel.text = "\(String(weather.cloud))%"
         pressureLabel.text = "\(String(weather.pressure)) hPa"
+        backgroundView.backgroundColor = weather.conditionColor
     }
     
     func didNotFindWeather() {

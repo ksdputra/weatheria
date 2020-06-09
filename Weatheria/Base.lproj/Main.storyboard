@@ -18,6 +18,10 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-gB-jTz">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKG-p3-MO6" userLabel="Background">
+                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-J7-JzV">
                                 <rect key="frame" x="0.0" y="40" width="414" height="812"/>
                                 <subviews>
@@ -355,8 +359,12 @@
                             <constraint firstItem="0Ib-gB-jTz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4IY-yT-G0h"/>
                             <constraint firstItem="sQV-J7-JzV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="40" id="CZi-do-DVg"/>
                             <constraint firstItem="sQV-J7-JzV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RhK-GF-ttH"/>
+                            <constraint firstItem="tKG-p3-MO6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="108" id="Tka-gN-HAP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sQV-J7-JzV" secondAttribute="bottom" constant="10" id="bs8-oE-88w"/>
+                            <constraint firstItem="tKG-p3-MO6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="esO-Sy-sOi"/>
+                            <constraint firstItem="tKG-p3-MO6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g5q-yG-ZV1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sQV-J7-JzV" secondAttribute="trailing" id="goe-Og-I2U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tKG-p3-MO6" secondAttribute="bottom" id="ngD-LO-lce"/>
                             <constraint firstItem="0Ib-gB-jTz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oGF-uk-JOH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -364,6 +372,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="0Ib-gB-jTz" id="vle-8E-OCo"/>
                         <outlet property="areaSearchBar" destination="gOb-qP-sRO" id="pfz-E4-977"/>
+                        <outlet property="backgroundView" destination="tKG-p3-MO6" id="0at-cT-VgL"/>
                         <outlet property="cityLabel" destination="y6j-a1-Se4" id="uVE-1r-qx9"/>
                         <outlet property="cloudsLabel" destination="ao9-hG-erl" id="TMu-X1-y99"/>
                         <outlet property="currentLocationButton" destination="65h-3G-bZh" id="1B7-rb-kjv"/>
