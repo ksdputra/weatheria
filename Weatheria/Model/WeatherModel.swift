@@ -12,6 +12,7 @@ struct WeatherModel {
     let conditionID: Int
     let city: String
     let temp: Double
+    let icon: String
     let description: String
     let feelsLikeTemp: Double
     let tempMin: Double
@@ -20,7 +21,7 @@ struct WeatherModel {
     let sunset: Date
     let wind: Double
     let humidity: Int
-    let cloud: Int
+    let clouds: Int
     let pressure: Int
     let timeZone: Int
     var conditionName: String {
@@ -38,7 +39,7 @@ struct WeatherModel {
         case 800:
             return "sun.max"
         case 801...804:
-            return "cloud.bolt"
+            return "cloud.sun"
         default:
             return "cloud"
         }
@@ -58,9 +59,9 @@ struct WeatherModel {
         case 701...781:
             return #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         case 800:
-            return #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+            return #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         case 801...804:
-            return #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            return #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         default:
             return #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         }
@@ -70,10 +71,11 @@ struct WeatherModel {
         return String(format: "%.1f", temp)
     }
     
-    init(conditionID: Int, city: String, temp: Double, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, cloud: Int, pressure: Int, timeZone: Int) {
+    init(conditionID: Int, city: String, temp: Double, icon: String, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, clouds: Int, pressure: Int, timeZone: Int) {
         self.conditionID = conditionID
         self.city = city
         self.temp = temp
+        self.icon = icon
         self.description = description
         self.feelsLikeTemp = feelsLikeTemp
         self.tempMin = tempMin
@@ -82,8 +84,59 @@ struct WeatherModel {
         self.sunset = sunset
         self.wind = wind
         self.humidity = humidity
-        self.cloud = cloud
+        self.clouds = clouds
         self.pressure = pressure
         self.timeZone = timeZone
+    }
+    
+    func sunFormatter(data: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: timeZone)
+        return formatter.string(from: data)
+    }
+    
+    func getTemp() -> String {
+        return String(format: "%.1f", temp)
+    }
+    
+    func getImageUrl() -> String {
+        return "http://openweathermap.org/img/wn/\(icon)@4x.png"
+    }
+    
+    func getFeelsLikeTemp() -> String {
+        return "Feels like \(String(feelsLikeTemp))°"
+    }
+    
+    func getMinTemp() -> String {
+        return "\(String(tempMin))°"
+    }
+    
+    func getMaxTemp() -> String {
+        return "\(String(tempMax))°"
+    }
+    
+    func getSunrise() -> String {
+        return sunFormatter(data: sunrise)
+    }
+    
+    func getSunset() -> String {
+        return sunFormatter(data: sunset)
+    }
+    
+    func getWindSpeed() -> String {
+        return "\(String(wind)) m/s"
+    }
+    
+    func getHumidity() -> String {
+        return "\(String(humidity))%"
+    }
+    
+    func getClouds() -> String {
+        return "\(String(clouds))%"
+    }
+    
+    func getPressure() -> String {
+        return "\(String(pressure)) hPa"
     }
 }

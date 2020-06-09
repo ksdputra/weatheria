@@ -47,12 +47,6 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    @IBAction func forecastTypeButton(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Feature in Progress", message: "Will be updated ASAP", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
 }
 
 // MARK: - Function
@@ -61,6 +55,13 @@ extension ViewController {
     
     @IBAction func currentLocationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+    
+    @IBAction func forecastTypeButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Feature in Progress", message: "Will be updated ASAP", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func dismissKeyboard() {
@@ -94,22 +95,20 @@ extension ViewController: UISearchBarDelegate {
 extension ViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(weather: WeatherModel) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        formatter.timeZone = TimeZone(secondsFromGMT: weather.timeZone)
         cityLabel.text = weather.city
-        tempLabel.text = String(weather.temp)
-        weatherImageView.image = UIImage(systemName: weather.conditionName)
+        tempLabel.text = weather.getTemp()
+//        weatherImageView.image = UIImage(systemName: weather.conditionName)
+        setImage(from: weather.getImageUrl())
         descriptionLabel.text = weather.description
-        feelsLikeTempLabel.text = "Feels like \(String(weather.feelsLikeTemp))°"
-        minTempLabel.text = "\(String(weather.tempMin))°"
-        maxTempLabel.text = "\(String(weather.tempMax))°"
-        sunriseLabel.text = formatter.string(from: weather.sunrise)
-        sunsetLabel.text = formatter.string(from: weather.sunset)
-        windSpeedLabel.text = "\(String(weather.wind)) m/s"
-        humidityLabel.text = "\(String(weather.humidity))%"
-        cloudsLabel.text = "\(String(weather.cloud))%"
-        pressureLabel.text = "\(String(weather.pressure)) hPa"
+        feelsLikeTempLabel.text = weather.getFeelsLikeTemp()
+        minTempLabel.text = weather.getMinTemp()
+        maxTempLabel.text = weather.getMaxTemp()
+        sunriseLabel.text = weather.getSunrise()
+        sunsetLabel.text = weather.getSunset()
+        windSpeedLabel.text = weather.getWindSpeed()
+        humidityLabel.text = weather.getHumidity()
+        cloudsLabel.text = weather.getClouds()
+        pressureLabel.text = weather.getPressure()
         backgroundView.backgroundColor = weather.conditionColor
     }
     
@@ -127,6 +126,20 @@ extension ViewController: WeatherManagerDelegate {
     func stopSpinning() {
         activityIndicatorView.isHidden = true
         activityIndicatorView.stopAnimating()
+    }
+    
+    func setImage(from url: String) {
+        guard let imageURL = URL(string: url) else { return }
+
+            // just not to cause a deadlock in UI!
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+
+            let image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                self.weatherImageView.image = image
+            }
+        }
     }
 }
 

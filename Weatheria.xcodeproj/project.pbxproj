@@ -59,6 +59,7 @@
 				8C4248B0248DF80D00530EEE /* WeatherManager.swift */,
 				8C3EED80248E2BC900723ADA /* WeatherModel.swift */,
 				8C3EED82248E2C7400723ADA /* WeatherData.swift */,
+				8CF93A11248B447F0079126A /* Main.storyboard */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,7 +89,6 @@
 				8CF93A0B248B447F0079126A /* AppDelegate.swift */,
 				8CF93A0D248B447F0079126A /* SceneDelegate.swift */,
 				8CF93A14248B44800079126A /* Assets.xcassets */,
-				8CF93A11248B447F0079126A /* Main.storyboard */,
 				8CF93A16248B44800079126A /* LaunchScreen.storyboard */,
 				8CF93A19248B44800079126A /* Info.plist */,
 			);
