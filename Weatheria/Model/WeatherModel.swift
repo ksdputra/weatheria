@@ -22,6 +22,7 @@ struct WeatherModel {
     let humidity: Int
     let cloud: Int
     let pressure: Int
+    let timeZone: Int
     var conditionName: String {
         switch conditionID {
         case 200...232:
@@ -69,7 +70,7 @@ struct WeatherModel {
         return String(format: "%.1f", temp)
     }
     
-    init(conditionID: Int, city: String, temp: Double, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, cloud: Int, pressure: Int) {
+    init(conditionID: Int, city: String, temp: Double, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, cloud: Int, pressure: Int, timeZone: Int) {
         self.conditionID = conditionID
         self.city = city
         self.temp = temp
@@ -83,5 +84,6 @@ struct WeatherModel {
         self.humidity = humidity
         self.cloud = cloud
         self.pressure = pressure
+        self.timeZone = timeZone
     }
 }

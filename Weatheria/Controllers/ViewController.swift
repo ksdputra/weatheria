@@ -81,6 +81,9 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: WeatherManagerDelegate {
     func didUpdateWeather(weather: WeatherModel) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: weather.timeZone)
         cityLabel.text = weather.city
         tempLabel.text = String(weather.temp)
         weatherImageView.image = UIImage(systemName: weather.conditionName)
@@ -88,8 +91,8 @@ extension ViewController: WeatherManagerDelegate {
         feelsLikeTempLabel.text = "Feels like \(String(weather.feelsLikeTemp))°"
         minTempLabel.text = "\(String(weather.tempMin))°"
         maxTempLabel.text = "\(String(weather.tempMax))°"
-//        sunriseLabel.text =
-//        sunsetLabel.text =
+        sunriseLabel.text = formatter.string(from: weather.sunrise)
+        sunsetLabel.text = formatter.string(from: weather.sunset)
         windSpeedLabel.text = "\(String(weather.wind)) m/s"
         humidityLabel.text = "\(String(weather.humidity))%"
         cloudsLabel.text = "\(String(weather.cloud))%"

@@ -76,7 +76,8 @@ struct WeatherManager {
             let humidity = decodedData.main.humidity
             let cloud = decodedData.clouds.all
             let pressure = decodedData.main.pressure
-            let weather = WeatherModel(conditionID: conditionID, city: city, temp: temp, description: description, feelsLikeTemp: feelsLikeTemp, tempMin: tempMin, tempMax: tempMax, sunrise: sunrise, sunset: sunset, wind: wind, humidity: humidity, cloud: cloud, pressure: pressure)
+            let timeZone = decodedData.timezone
+            let weather = WeatherModel(conditionID: conditionID, city: city, temp: temp, description: description, feelsLikeTemp: feelsLikeTemp, tempMin: tempMin, tempMax: tempMax, sunrise: sunrise, sunset: sunset, wind: wind, humidity: humidity, cloud: cloud, pressure: pressure, timeZone: timeZone)
             return weather
         } catch {
             print(error)

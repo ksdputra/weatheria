@@ -15,6 +15,7 @@ struct WeatherData: Decodable {
     let wind: Wind
     let clouds: Clouds
     let sys: Sys
+    let timezone: Int
 }
 
 struct Main: Decodable {
