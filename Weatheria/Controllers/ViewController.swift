@@ -47,6 +47,12 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    @IBAction func forecastTypeButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Feature in Progress", message: "Will be updated ASAP", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Function
@@ -70,10 +76,10 @@ extension ViewController: UISearchBarDelegate {
         areaSearchBar.endEditing(true)
         
         if areaSearchBar.text == "" {
-            let nilAlert = UIAlertController(title: "Search Field Cannot Be Empty", message: "Please Fill Any City To Continue", preferredStyle: .alert)
-            nilAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alertController = UIAlertController(title: "Search Field Cannot Be Empty", message: "Please Fill Any City To Continue", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
-            self.present(nilAlert, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else if let cityName = areaSearchBar.text {
             weatherManager.fetchWeather(of: cityName)
         }
