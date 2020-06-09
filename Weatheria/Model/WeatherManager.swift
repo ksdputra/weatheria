@@ -34,7 +34,10 @@ struct WeatherManager {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url, completionHandler: handle(data: response: error: ))
+            self.delegate?.startSpinning()
             task.resume()
+        } else {
+            self.delegate?.didNotFindWeather()
         }
     }
     

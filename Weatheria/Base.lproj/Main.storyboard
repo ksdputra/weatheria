@@ -15,13 +15,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-gB-jTz">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
-                            </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKG-p3-MO6" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-gB-jTz">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-J7-JzV">
                                 <rect key="frame" x="0.0" y="40" width="414" height="812"/>
                                 <subviews>
@@ -48,7 +48,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-vr-Fjg">
-                                        <rect key="frame" x="30" y="128.5" width="354" height="30"/>
+                                        <rect key="frame" x="30" y="121" width="354" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="det-aO-REJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
@@ -76,17 +76,28 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6j-a1-Se4">
-                                        <rect key="frame" x="167" y="231" width="80" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iT8-9K-rls">
-                                        <rect key="frame" x="123.5" y="351.5" width="167" height="115.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-Kd-U4Z">
+                                        <rect key="frame" x="87" y="216" width="240" height="78.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6j-a1-Se4">
+                                                <rect key="frame" x="80" y="0.0" width="80" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday, 21 Sep 2020 19:19:19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-B2-6dG">
+                                                <rect key="frame" x="0.0" y="58" width="240" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iT8-9K-rls">
+                                        <rect key="frame" x="40" y="359" width="334" height="115.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="w0n-7j-zXt">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="115.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="115.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-XY-Rwj" userLabel="Temp Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="148.5" height="60"/>
@@ -126,7 +137,7 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zzz" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3I4-ES-hWe">
-                                                <rect key="frame" x="148.5" y="48" width="18.5" height="19.5"/>
+                                                <rect key="frame" x="167" y="48" width="167" height="19.5"/>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </imageView>
                                         </subviews>
@@ -357,7 +368,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cNS-vr-Fjg" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="30" id="0qd-tG-cfB"/>
+                                    <constraint firstItem="iT8-9K-rls" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="40" id="4xT-7L-tGN"/>
                                     <constraint firstItem="cCD-ek-Gbv" firstAttribute="leading" secondItem="sQV-J7-JzV" secondAttribute="leading" constant="30" id="HZB-lb-lWX"/>
+                                    <constraint firstAttribute="trailing" secondItem="iT8-9K-rls" secondAttribute="trailing" constant="40" id="Ipk-cB-Ee3"/>
                                     <constraint firstAttribute="trailing" secondItem="cNS-vr-Fjg" secondAttribute="trailing" constant="30" id="JSL-0s-Mdb"/>
                                     <constraint firstAttribute="trailing" secondItem="cCD-ek-Gbv" secondAttribute="trailing" constant="30" id="cKw-yg-leN"/>
                                 </constraints>
@@ -385,6 +398,7 @@
                         <outlet property="cityLabel" destination="y6j-a1-Se4" id="uVE-1r-qx9"/>
                         <outlet property="cloudsLabel" destination="ao9-hG-erl" id="TMu-X1-y99"/>
                         <outlet property="currentLocationButton" destination="65h-3G-bZh" id="1B7-rb-kjv"/>
+                        <outlet property="dateTimeLabel" destination="MGl-B2-6dG" id="jpX-1n-mq5"/>
                         <outlet property="descriptionLabel" destination="RY1-hy-fN2" id="m6a-c0-eyU"/>
                         <outlet property="feelsLikeTempLabel" destination="tZI-QU-u8i" id="T00-Oi-EQ5"/>
                         <outlet property="humidityLabel" destination="AYk-cC-XKv" id="gF0-Et-nNG"/>

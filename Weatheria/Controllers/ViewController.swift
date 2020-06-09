@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var areaSearchBar: UISearchBar!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -31,6 +32,8 @@ class ViewController: UIViewController {
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    var timer = Timer()
+    var timeZone: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +99,9 @@ extension ViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(weather: WeatherModel) {
         cityLabel.text = weather.city
+        timeZone = Double(weather.timeZone)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.tick) , userInfo: nil, repeats: true)
         tempLabel.text = weather.getTemp()
-//        weatherImageView.image = UIImage(systemName: weather.conditionName)
         setImage(from: weather.getImageUrl())
         descriptionLabel.text = weather.description
         feelsLikeTempLabel.text = weather.getFeelsLikeTemp()
@@ -140,6 +144,13 @@ extension ViewController: WeatherManagerDelegate {
                 self.weatherImageView.image = image
             }
         }
+    }
+    
+    @objc func tick() {
+        let format = DateFormatter()
+        format.dateFormat = "EEEE, d MMM y HH:mm:ss"
+        format.timeZone = TimeZone(identifier: "UTC")
+        dateTimeLabel.text = format.string(from: Date() + timeZone!)
     }
 }
 

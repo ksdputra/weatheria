@@ -14,6 +14,7 @@ MVP:
   - When first boot up, the area shown is current location
   - User can search for the city
   - User can tap on location button to look at current location weather forecast
+  - User can see the City Name with the date, day, and clock
 2. v0.2.0
   - User can see hourly and daily forecast
 3. v0.3.0 
