@@ -47,7 +47,12 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+}
 
+// MARK: - Function
+
+extension ViewController {
+    
     @IBAction func currentLocationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
@@ -60,6 +65,7 @@ class ViewController: UIViewController {
 // MARK: - UISearchBarDelegate
 
 extension ViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         areaSearchBar.endEditing(true)
         
@@ -80,6 +86,7 @@ extension ViewController: UISearchBarDelegate {
 // MARK: - WeatherManagerDelegate
 
 extension ViewController: WeatherManagerDelegate {
+    
     func didUpdateWeather(weather: WeatherModel) {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
@@ -120,6 +127,7 @@ extension ViewController: WeatherManagerDelegate {
 // MARK: - CLLocationManagerDelegate
 
 extension ViewController: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
