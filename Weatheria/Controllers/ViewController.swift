@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var areaSearchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -60,10 +61,25 @@ extension ViewController {
         locationManager.requestLocation()
     }
     
-    @IBAction func forecastTypeButton(_ sender: UIButton) {
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            print(0)
+        case 1:
+            segmentedControl.selectedSegmentIndex = 0
+            failedAlert()
+        case 2:
+            segmentedControl.selectedSegmentIndex = 0
+            failedAlert()
+        default:
+            break
+        }
+    }
+    
+    func failedAlert() {
         let alertController = UIAlertController(title: "Feature in Progress", message: "Will be updated ASAP", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
+
         self.present(alertController, animated: true, completion: nil)
     }
     
