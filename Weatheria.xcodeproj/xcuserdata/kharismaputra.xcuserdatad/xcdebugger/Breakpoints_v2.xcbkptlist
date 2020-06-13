@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6A11E1D8-C72D-44B0-81D0-DCC8BFABAE1E"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weatheria/Controllers/CurrentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "CurrentViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - f5fc85105cad7c6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.weatherImageView.getter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - 94e6febf226b2051"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.weatherImageView.setter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "155">
+               </Location>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - 26990928ce59db60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.weatherImageView.modify : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - 349a2d12334ec57f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.weatherImageView.modify : Swift.Optional&lt;__C.UIImageView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - 30c624f5f9cdd5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Weatheria.CurrentViewController"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "370">
+               </Location>
+               <Location
+                  uuid = "A893EC62-9569-46C9-B4C0-07AC1BF58503 - 53572a71c4cfeca4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weatheria.CurrentViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Weatheria.CurrentViewController&gt;"
+                  moduleName = "Weatheria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kharismaputra/Documents/Projects/Weatheria/Weatheria/Controllers/CurrentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "311">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
