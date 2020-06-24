@@ -30,6 +30,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet weak var currentView: UIView!
+    @IBOutlet weak var hourlyView: UIView!
+    @IBOutlet weak var dailyView: UIView!
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -47,6 +50,9 @@ class ViewController: UIViewController {
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
+        currentView.isHidden = false
+        hourlyView.isHidden = true
+        dailyView.isHidden = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -64,13 +70,21 @@ extension ViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            print(0)
+            currentView.isHidden = false
+            hourlyView.isHidden = true
+            dailyView.isHidden = true
         case 1:
-            segmentedControl.selectedSegmentIndex = 0
-            failedAlert()
+//            segmentedControl.selectedSegmentIndex = 0
+//            failedAlert()
+            currentView.isHidden = true
+            hourlyView.isHidden = false
+            dailyView.isHidden = true
         case 2:
-            segmentedControl.selectedSegmentIndex = 0
-            failedAlert()
+//            segmentedControl.selectedSegmentIndex = 0
+//            failedAlert()
+            currentView.isHidden = true
+            hourlyView.isHidden = true
+            dailyView.isHidden = false
         default:
             break
         }
