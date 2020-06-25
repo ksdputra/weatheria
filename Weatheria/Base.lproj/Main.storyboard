@@ -383,211 +383,26 @@
                                     <constraint firstItem="kCP-rj-VYk" firstAttribute="centerY" secondItem="124-hy-vdr" secondAttribute="centerY" id="PDC-M4-RaU"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Sg-A9-9dw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e3v-NX-jrF">
                                 <rect key="frame" x="0.0" y="315.5" width="414" height="546.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6cH-iA-HC3">
-                                        <rect key="frame" x="40" y="40" width="334" height="468"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c0r-WX-SRx">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igj-gF-Vsz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6Z-7B-dxm">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf3-Cc-kfT">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rbg-Xh-1rf">
-                                                <rect key="frame" x="0.0" y="61" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-H1-MIA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocU-iE-JRZ">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTK-oe-RHg">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LFZ-Cy-sgP">
-                                                <rect key="frame" x="0.0" y="122" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEK-eC-JiF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg3-Yi-jo8">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avW-Gt-NZW">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c0v-BA-LY3">
-                                                <rect key="frame" x="0.0" y="183" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcy-Ne-aLL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHC-NI-3Q8">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-OO-CeM">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-au-Glg">
-                                                <rect key="frame" x="0.0" y="244" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0n-yJ-OOv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNZ-VD-3gr">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG3-oa-yFk">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kss-wN-1Gf">
-                                                <rect key="frame" x="0.0" y="305" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAa-28-xFz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZK-lO-z6K">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p49-I1-3dK">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ABN-bq-HRw">
-                                                <rect key="frame" x="0.0" y="366" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-Fj-E4V">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giV-mU-7sS">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhI-L4-lxb">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xfk-eC-7tX">
-                                                <rect key="frame" x="0.0" y="427" width="334" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPy-hp-ILl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f41-Bb-Tj6">
-                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overcast cloud" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-Wa-wWE">
-                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="6cH-iA-HC3" firstAttribute="leading" secondItem="2Sg-A9-9dw" secondAttribute="leading" constant="40" id="8Nn-UJ-idd"/>
-                                    <constraint firstItem="6cH-iA-HC3" firstAttribute="top" secondItem="2Sg-A9-9dw" secondAttribute="top" constant="40" id="j5U-6K-Rfz"/>
-                                    <constraint firstAttribute="trailing" secondItem="6cH-iA-HC3" secondAttribute="trailing" constant="40" id="pe9-DJ-ygO"/>
-                                </constraints>
-                            </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="iPN-eO-CaB">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iPN-eO-CaB" id="ERu-VO-CIf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0Ib-gB-jTz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4IY-yT-G0h"/>
-                            <constraint firstItem="2Sg-A9-9dw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7GV-VI-KGH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e3v-NX-jrF" secondAttribute="bottom" id="8Gd-fH-p0E"/>
                             <constraint firstAttribute="trailing" secondItem="tKG-p3-MO6" secondAttribute="trailing" id="9wb-mK-55A"/>
                             <constraint firstItem="cCD-ek-Gbv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BrS-5f-EZU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uuF-cU-mgJ" secondAttribute="bottom" id="GwP-Cy-OOs"/>
@@ -602,16 +417,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E5j-rQ-URL" secondAttribute="trailing" constant="40" id="YsG-DD-eDY"/>
                             <constraint firstItem="uuF-cU-mgJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="djb-us-Htp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCD-ek-Gbv" secondAttribute="trailing" constant="30" id="eOy-Zx-X95"/>
+                            <constraint firstItem="e3v-NX-jrF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ipK-yw-rx0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e3v-NX-jrF" secondAttribute="trailing" id="izG-ZK-c35"/>
                             <constraint firstItem="E5j-rQ-URL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="kmf-ur-iXm"/>
                             <constraint firstItem="NIZ-Kd-U4Z" firstAttribute="top" secondItem="E5j-rQ-URL" secondAttribute="bottom" constant="50" id="mYm-TN-qLr"/>
                             <constraint firstItem="0Ib-gB-jTz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oGF-uk-JOH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="124-hy-vdr" secondAttribute="trailing" id="omw-q0-cuT"/>
+                            <constraint firstItem="e3v-NX-jrF" firstAttribute="top" secondItem="NIZ-Kd-U4Z" secondAttribute="bottom" constant="40" id="oyh-xk-R4x"/>
                             <constraint firstItem="E5j-rQ-URL" firstAttribute="top" secondItem="cCD-ek-Gbv" secondAttribute="bottom" constant="20" id="phI-mT-OgE"/>
                             <constraint firstItem="tKG-p3-MO6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qHu-4E-0Y9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Sg-A9-9dw" secondAttribute="trailing" id="qNe-CE-rf9"/>
                             <constraint firstItem="uuF-cU-mgJ" firstAttribute="top" secondItem="NIZ-Kd-U4Z" secondAttribute="bottom" constant="40" id="sqZ-JJ-HsY"/>
-                            <constraint firstItem="2Sg-A9-9dw" firstAttribute="top" secondItem="NIZ-Kd-U4Z" secondAttribute="bottom" constant="40" id="xtn-76-4tD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Sg-A9-9dw" secondAttribute="bottom" id="ynB-Uf-olY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -623,24 +438,7 @@
                         <outlet property="cloudsLabel" destination="ao9-hG-erl" id="TMu-X1-y99"/>
                         <outlet property="currentLocationButton" destination="65h-3G-bZh" id="1B7-rb-kjv"/>
                         <outlet property="currentView" destination="uuF-cU-mgJ" id="odT-Pv-ogj"/>
-                        <outlet property="dailyView" destination="2Sg-A9-9dw" id="XJQ-Cw-XG8"/>
-                        <outlet property="date1Label" destination="igj-gF-Vsz" id="pRA-f4-S13"/>
-                        <outlet property="date2Label" destination="pRT-H1-MIA" id="N0a-gi-IkF"/>
-                        <outlet property="date3Label" destination="BEK-eC-JiF" id="SYi-UR-SZi"/>
-                        <outlet property="date4Label" destination="kcy-Ne-aLL" id="cQN-YD-KlR"/>
-                        <outlet property="date5Label" destination="T0n-yJ-OOv" id="gTC-xE-Dn7"/>
-                        <outlet property="date6Label" destination="zAa-28-xFz" id="s0m-4w-mfd"/>
-                        <outlet property="date7Label" destination="bAo-Fj-E4V" id="gzy-xk-cPb"/>
-                        <outlet property="date8Label" destination="dPy-hp-ILl" id="16p-q3-faQ"/>
                         <outlet property="dateTimeLabel" destination="MGl-B2-6dG" id="jpX-1n-mq5"/>
-                        <outlet property="desc1Label" destination="Xf3-Cc-kfT" id="r4H-9h-FOj"/>
-                        <outlet property="desc2Label" destination="xTK-oe-RHg" id="NZj-OA-rid"/>
-                        <outlet property="desc3Label" destination="avW-Gt-NZW" id="1Ah-bZ-Cm5"/>
-                        <outlet property="desc4Label" destination="CC4-OO-CeM" id="Tdf-hP-JYI"/>
-                        <outlet property="desc5Label" destination="IG3-oa-yFk" id="Zf2-Td-57L"/>
-                        <outlet property="desc6Label" destination="p49-I1-3dK" id="lbl-41-bPp"/>
-                        <outlet property="desc7Label" destination="PhI-L4-lxb" id="ZqL-G6-Xcq"/>
-                        <outlet property="desc8Label" destination="hfh-Wa-wWE" id="AS4-pb-HK1"/>
                         <outlet property="descriptionLabel" destination="RY1-hy-fN2" id="m6a-c0-eyU"/>
                         <outlet property="feelsLikeTempLabel" destination="tZI-QU-u8i" id="T00-Oi-EQ5"/>
                         <outlet property="hourlyLabel" destination="kCP-rj-VYk" id="X5h-Uw-5hM"/>
@@ -652,14 +450,7 @@
                         <outlet property="segmentedControl" destination="E5j-rQ-URL" id="YOC-AK-vz7"/>
                         <outlet property="sunriseLabel" destination="918-uM-oeE" id="7ag-RN-2qp"/>
                         <outlet property="sunsetLabel" destination="KTW-Bi-KkP" id="Kx1-0A-aHC"/>
-                        <outlet property="temp1Label" destination="K6Z-7B-dxm" id="vdd-2A-rXm"/>
-                        <outlet property="temp2Label" destination="ocU-iE-JRZ" id="P5c-4s-GXt"/>
-                        <outlet property="temp3Label" destination="Vg3-Yi-jo8" id="3UN-ss-iYx"/>
-                        <outlet property="temp4Label" destination="wHC-NI-3Q8" id="o5I-rE-UL4"/>
-                        <outlet property="temp5Label" destination="DNZ-VD-3gr" id="NCi-Ka-iD9"/>
-                        <outlet property="temp6Label" destination="VZK-lO-z6K" id="1lw-7J-0lT"/>
-                        <outlet property="temp7Label" destination="giV-mU-7sS" id="xdk-NH-QqJ"/>
-                        <outlet property="temp8Label" destination="f41-Bb-Tj6" id="xfF-B7-5Ci"/>
+                        <outlet property="tableView" destination="e3v-NX-jrF" id="kHq-E8-WZx"/>
                         <outlet property="tempLabel" destination="5fy-Jv-2wu" id="bV5-ce-Hk4"/>
                         <outlet property="weatherImageView" destination="3I4-ES-hWe" id="a4R-o1-DRA"/>
                         <outlet property="windSpeedLabel" destination="MaH-5g-kIT" id="eag-wB-Yhv"/>

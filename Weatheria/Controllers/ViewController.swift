@@ -36,34 +36,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourlyLabel: UILabel!
     
     
-    @IBOutlet weak var dailyView: UIView!
-    @IBOutlet weak var date1Label: UILabel!
-    @IBOutlet weak var temp1Label: UILabel!
-    @IBOutlet weak var desc1Label: UILabel!
-    @IBOutlet weak var date2Label: UILabel!
-    @IBOutlet weak var desc2Label: UILabel!
-    @IBOutlet weak var temp2Label: UILabel!
-    @IBOutlet weak var date3Label: UILabel!
-    @IBOutlet weak var temp3Label: UILabel!
-    @IBOutlet weak var desc3Label: UILabel!
-    @IBOutlet weak var date4Label: UILabel!
-    @IBOutlet weak var temp4Label: UILabel!
-    @IBOutlet weak var desc4Label: UILabel!
-    @IBOutlet weak var date5Label: UILabel!
-    @IBOutlet weak var temp5Label: UILabel!
-    @IBOutlet weak var desc5Label: UILabel!
-    @IBOutlet weak var date6Label: UILabel!
-    @IBOutlet weak var temp6Label: UILabel!
-    @IBOutlet weak var desc6Label: UILabel!
-    @IBOutlet weak var date7Label: UILabel!
-    @IBOutlet weak var temp7Label: UILabel!
-    @IBOutlet weak var desc7Label: UILabel!
-    @IBOutlet weak var date8Label: UILabel!
-    @IBOutlet weak var temp8Label: UILabel!
-    @IBOutlet weak var desc8Label: UILabel!
-    
-    
-    
+    @IBOutlet weak var tableView: UITableView!
+    var dailyForecast: [OneCallModel] = []
     var weatherManager = WeatherManager()
     var forecastManager = ForecastManager()
     let locationManager = CLLocationManager()
@@ -77,6 +51,9 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
         weatherManager.delegate = self
         forecastManager.delegate = self
         areaSearchBar.delegate = self
@@ -84,7 +61,7 @@ class ViewController: UIViewController {
         currentLocationButton.isHidden = true
         currentView.isHidden = false
         hourlyView.isHidden = true
-        dailyView.isHidden = true
+        tableView.isHidden = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -104,19 +81,19 @@ extension ViewController {
         case 0:
             currentView.isHidden = false
             hourlyView.isHidden = true
-            dailyView.isHidden = true
+            tableView.isHidden = true
         case 1:
 //            segmentedControl.selectedSegmentIndex = 0
 //            failedAlert()
             currentView.isHidden = true
             hourlyView.isHidden = false
-            dailyView.isHidden = true
+            tableView.isHidden = true
         case 2:
 //            segmentedControl.selectedSegmentIndex = 0
 //            failedAlert()
             currentView.isHidden = true
             hourlyView.isHidden = true
-            dailyView.isHidden = false
+            tableView.isHidden = false
         default:
             break
         }
@@ -252,34 +229,24 @@ extension ViewController: CLLocationManagerDelegate {
 // MARK: - ForecastManagerDelegate
 extension ViewController: ForecastManagerDelegate {
     func didUpdateForecast(forecasts: [OneCallModel]) {
-        
-        date1Label.text = forecasts[0].getDate()
-        date2Label.text = forecasts[1].getDate()
-        date3Label.text = forecasts[2].getDate()
-        date4Label.text = forecasts[3].getDate()
-        date5Label.text = forecasts[4].getDate()
-        date6Label.text = forecasts[5].getDate()
-        date7Label.text = forecasts[6].getDate()
-        date8Label.text = forecasts[7].getDate()
-
-        temp1Label.text = forecasts[0].getTemp()
-        temp2Label.text = forecasts[1].getTemp()
-        temp3Label.text = forecasts[2].getTemp()
-        temp4Label.text = forecasts[3].getTemp()
-        temp5Label.text = forecasts[4].getTemp()
-        temp6Label.text = forecasts[5].getTemp()
-        temp7Label.text = forecasts[6].getTemp()
-        temp8Label.text = forecasts[7].getTemp()
-        
-        desc1Label.text = forecasts[0].description
-        desc2Label.text = forecasts[1].description
-        desc3Label.text = forecasts[2].description
-        desc4Label.text = forecasts[3].description
-        desc5Label.text = forecasts[4].description
-        desc6Label.text = forecasts[5].description
-        desc7Label.text = forecasts[6].description
-        desc8Label.text = forecasts[7].description
+        dailyForecast = []
+        dailyForecast.append(contentsOf: forecasts)
+        self.tableView.reloadData()
     }
     
     
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dailyForecast.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
+        cell.dateLabel.text = dailyForecast[indexPath.row].getDate()
+        cell.tempLabel.text = dailyForecast[indexPath.row].getTemp()
+        cell.descriptionLabel.text = dailyForecast[indexPath.row].description
+        return cell
+    }
 }
