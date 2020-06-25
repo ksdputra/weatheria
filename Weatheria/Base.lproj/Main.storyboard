@@ -26,9 +26,10 @@
                                 <rect key="frame" x="30" y="40" width="354" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65h-3G-bZh">
-                                        <rect key="frame" x="0.0" y="9" width="20" height="38"/>
+                                        <rect key="frame" x="0.0" y="9" width="40" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="HOy-DN-2vX"/>
+                                            <constraint firstAttribute="width" constant="40" id="Rfp-wu-590"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -38,7 +39,7 @@
                                         </connections>
                                     </button>
                                     <searchBar opaque="NO" contentMode="redraw" searchBarStyle="minimal" placeholder="Search city e.g Paris" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOb-qP-sRO">
-                                        <rect key="frame" x="20" y="0.0" width="334" height="56"/>
+                                        <rect key="frame" x="40" y="0.0" width="314" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>

@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.rowHeight = 65
         
         weatherManager.delegate = self
         forecastManager.delegate = self
