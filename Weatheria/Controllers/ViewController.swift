@@ -39,20 +39,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var dailyView: UIView!
     @IBOutlet weak var date1Label: UILabel!
     @IBOutlet weak var temp1Label: UILabel!
+    @IBOutlet weak var desc1Label: UILabel!
     @IBOutlet weak var date2Label: UILabel!
+    @IBOutlet weak var desc2Label: UILabel!
     @IBOutlet weak var temp2Label: UILabel!
     @IBOutlet weak var date3Label: UILabel!
     @IBOutlet weak var temp3Label: UILabel!
+    @IBOutlet weak var desc3Label: UILabel!
     @IBOutlet weak var date4Label: UILabel!
     @IBOutlet weak var temp4Label: UILabel!
+    @IBOutlet weak var desc4Label: UILabel!
     @IBOutlet weak var date5Label: UILabel!
     @IBOutlet weak var temp5Label: UILabel!
+    @IBOutlet weak var desc5Label: UILabel!
     @IBOutlet weak var date6Label: UILabel!
     @IBOutlet weak var temp6Label: UILabel!
+    @IBOutlet weak var desc6Label: UILabel!
     @IBOutlet weak var date7Label: UILabel!
     @IBOutlet weak var temp7Label: UILabel!
+    @IBOutlet weak var desc7Label: UILabel!
     @IBOutlet weak var date8Label: UILabel!
     @IBOutlet weak var temp8Label: UILabel!
+    @IBOutlet weak var desc8Label: UILabel!
     
     
     
@@ -262,6 +270,15 @@ extension ViewController: ForecastManagerDelegate {
         temp6Label.text = forecasts[5].getTemp()
         temp7Label.text = forecasts[6].getTemp()
         temp8Label.text = forecasts[7].getTemp()
+        
+        desc1Label.text = forecasts[0].description
+        desc2Label.text = forecasts[1].description
+        desc3Label.text = forecasts[2].description
+        desc4Label.text = forecasts[3].description
+        desc5Label.text = forecasts[4].description
+        desc6Label.text = forecasts[5].description
+        desc7Label.text = forecasts[6].description
+        desc8Label.text = forecasts[7].description
     }
     
     

@@ -63,7 +63,8 @@ struct ForecastManager {
             for daily in decodedData.daily {
                 let day = daily.temp.day
                 let dt = daily.dt
-                let oneCallModel = OneCallModel(day: day, dt: dt)
+                let description = daily.weather[0].description
+                let oneCallModel = OneCallModel(day: day, dt: dt, description: description)
                 oneCallModels.append(oneCallModel)
             }
             return oneCallModels

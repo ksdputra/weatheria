@@ -15,6 +15,7 @@ struct OneCallData: Decodable {
 struct Daily: Decodable {
     let dt: Int
     let temp: Temp
+    let weather: [Weather]
 }
 
 struct Temp: Decodable {

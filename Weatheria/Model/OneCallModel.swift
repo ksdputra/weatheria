@@ -11,10 +11,12 @@ import Foundation
 struct OneCallModel {
     let day: Double
     let dt: Int
+    let description: String
     
-    init(day: Double, dt: Int) {
+    init(day: Double, dt: Int, description: String) {
         self.day = day
         self.dt = dt
+        self.description = description
     }
     
     func getDate() -> String {
