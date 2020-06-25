@@ -139,7 +139,17 @@ extension ViewController: UISearchBarDelegate {
             
             self.present(alertController, animated: true, completion: nil)
         } else if let cityName = areaSearchBar.text {
+            // For current weather
             weatherManager.fetchWeather(of: cityName)
+            
+            // For forecast weather
+            CLGeocoder().geocodeAddressString(cityName) {
+                placemarks, error in
+                let placemark = placemarks?.first
+                let lat = placemark?.location?.coordinate.latitude
+                let lon = placemark?.location?.coordinate.longitude
+                self.forecastManager.fetchWeather(latitude: lat!, longitude: lon!)
+            }
         }
         
         areaSearchBar.text = ""

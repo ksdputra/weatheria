@@ -67,23 +67,6 @@ struct ForecastManager {
                 dts.append(dt)
                 days.append(day)
             }
-//            let conditionID = decodedData.weather[0].id
-//            let city = decodedData.name
-//            let temp = decodedData.main.temp
-//            let icon = decodedData.weather[0].icon
-//            let description = decodedData.weather[0].description
-//            let feelsLikeTemp = decodedData.main.feels_like
-//            let tempMin = decodedData.main.temp_min
-//            let tempMax = decodedData.main.temp_max
-//            let sunrise = decodedData.sys.sunrise
-//            let sunset = decodedData.sys.sunset
-//            let wind = decodedData.wind.speed
-//            let humidity = decodedData.main.humidity
-//            let clouds = decodedData.clouds.all
-//            let pressure = decodedData.main.pressure
-//            let timeZone = decodedData.timezone
-//            let weather = WeatherModel(conditionID: conditionID, city: city, temp: temp, icon: icon, description: description, feelsLikeTemp: feelsLikeTemp, tempMin: tempMin, tempMax: tempMax, sunrise: sunrise, sunset: sunset, wind: wind, humidity: humidity, clouds: clouds, pressure: pressure, timeZone: timeZone)
-//            return weather
             print(dts)
             print(days)
             return OneCallModel(days: days, dts: dts)
