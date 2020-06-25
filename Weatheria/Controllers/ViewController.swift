@@ -31,10 +31,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var currentView: UIView!
+    
     @IBOutlet weak var hourlyView: UIView!
+    @IBOutlet weak var hourlyLabel: UILabel!
+    
+    
     @IBOutlet weak var dailyView: UIView!
+    @IBOutlet weak var date1Label: UILabel!
+    @IBOutlet weak var temp1Label: UILabel!
+    @IBOutlet weak var date2Label: UILabel!
+    @IBOutlet weak var temp2Label: UILabel!
+    @IBOutlet weak var date3Label: UILabel!
+    @IBOutlet weak var temp3Label: UILabel!
+    @IBOutlet weak var date4Label: UILabel!
+    @IBOutlet weak var temp4Label: UILabel!
+    @IBOutlet weak var date5Label: UILabel!
+    @IBOutlet weak var temp5Label: UILabel!
+    @IBOutlet weak var date6Label: UILabel!
+    @IBOutlet weak var temp6Label: UILabel!
+    @IBOutlet weak var date7Label: UILabel!
+    @IBOutlet weak var temp7Label: UILabel!
+    @IBOutlet weak var date8Label: UILabel!
+    @IBOutlet weak var temp8Label: UILabel!
+    
+    
     
     var weatherManager = WeatherManager()
+    var forecastManager = ForecastManager()
     let locationManager = CLLocationManager()
     var timer = Timer()
     var timeZone: Double?
@@ -47,6 +70,7 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         
         weatherManager.delegate = self
+        forecastManager.delegate = self
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
@@ -144,6 +168,9 @@ extension ViewController: WeatherManagerDelegate {
         cloudsLabel.text = weather.getClouds()
         pressureLabel.text = weather.getPressure()
         backgroundView.backgroundColor = weather.conditionColor
+        
+        hourlyLabel.text = "HOURLY!!"
+        
     }
     
     func didNotFindWeather() {
@@ -194,6 +221,7 @@ extension ViewController: CLLocationManagerDelegate {
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
+            forecastManager.fetchWeather(latitude: lat, longitude: lon)
             currentLocationButton.isHidden = true
         }
     }
@@ -201,4 +229,30 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+}
+
+extension ViewController: ForecastManagerDelegate {
+    func didUpdateForecast(forecast: OneCallModel) {
+        let dates = forecast.getDate()
+        date1Label.text = dates[0]
+        date2Label.text = dates[1]
+        date3Label.text = dates[2]
+        date4Label.text = dates[3]
+        date5Label.text = dates[4]
+        date6Label.text = dates[5]
+        date7Label.text = dates[6]
+        date8Label.text = dates[7]
+        
+        let temps = forecast.getTemps()
+        temp1Label.text = temps[0]
+        temp2Label.text = temps[1]
+        temp3Label.text = temps[2]
+        temp4Label.text = temps[3]
+        temp5Label.text = temps[4]
+        temp6Label.text = temps[5]
+        temp7Label.text = temps[6]
+        temp8Label.text = temps[7]
+    }
+    
+    
 }
