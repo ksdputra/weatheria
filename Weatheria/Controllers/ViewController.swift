@@ -241,27 +241,27 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: - ForecastManagerDelegate
 extension ViewController: ForecastManagerDelegate {
-    func didUpdateForecast(forecast: OneCallModel) {
-        let dates = forecast.getDate()
-        date1Label.text = dates[0]
-        date2Label.text = dates[1]
-        date3Label.text = dates[2]
-        date4Label.text = dates[3]
-        date5Label.text = dates[4]
-        date6Label.text = dates[5]
-        date7Label.text = dates[6]
-        date8Label.text = dates[7]
+    func didUpdateForecast(forecasts: [OneCallModel]) {
         
-        let temps = forecast.getTemps()
-        temp1Label.text = temps[0]
-        temp2Label.text = temps[1]
-        temp3Label.text = temps[2]
-        temp4Label.text = temps[3]
-        temp5Label.text = temps[4]
-        temp6Label.text = temps[5]
-        temp7Label.text = temps[6]
-        temp8Label.text = temps[7]
+        date1Label.text = forecasts[0].getDate()
+        date2Label.text = forecasts[1].getDate()
+        date3Label.text = forecasts[2].getDate()
+        date4Label.text = forecasts[3].getDate()
+        date5Label.text = forecasts[4].getDate()
+        date6Label.text = forecasts[5].getDate()
+        date7Label.text = forecasts[6].getDate()
+        date8Label.text = forecasts[7].getDate()
+
+        temp1Label.text = forecasts[0].getTemp()
+        temp2Label.text = forecasts[1].getTemp()
+        temp3Label.text = forecasts[2].getTemp()
+        temp4Label.text = forecasts[3].getTemp()
+        temp5Label.text = forecasts[4].getTemp()
+        temp6Label.text = forecasts[5].getTemp()
+        temp7Label.text = forecasts[6].getTemp()
+        temp8Label.text = forecasts[7].getTemp()
     }
     
     

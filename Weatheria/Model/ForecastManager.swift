@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 protocol ForecastManagerDelegate {
-    func didUpdateForecast(forecast: OneCallModel)
+    func didUpdateForecast(forecasts: [OneCallModel])
 }
 
 struct ForecastManager {
@@ -40,10 +40,10 @@ struct ForecastManager {
         }
         
         if let safeData = data {
-            if let forecast = parseJSON(oneCallData: safeData) {
+            if let forecasts = parseJSON(oneCallData: safeData) {
                 DispatchQueue.main.async {
 //                    self.delegate?.stopSpinning()
-                    self.delegate?.didUpdateForecast(forecast: forecast)
+                    self.delegate?.didUpdateForecast(forecasts: forecasts)
                 }
             } else {
                 DispatchQueue.main.async {
@@ -55,21 +55,18 @@ struct ForecastManager {
         }
     }
     
-    func parseJSON(oneCallData: Data) -> OneCallModel? {
+    func parseJSON(oneCallData: Data) -> [OneCallModel]? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(OneCallData.self, from: oneCallData)
-            var days: [Double] = []
-            var dts: [Int] = []
+            var oneCallModels: [OneCallModel] = []
             for daily in decodedData.daily {
                 let day = daily.temp.day
                 let dt = daily.dt
-                dts.append(dt)
-                days.append(day)
+                let oneCallModel = OneCallModel(day: day, dt: dt)
+                oneCallModels.append(oneCallModel)
             }
-            print(dts)
-            print(days)
-            return OneCallModel(days: days, dts: dts)
+            return oneCallModels
         } catch {
             print(error)
             return nil

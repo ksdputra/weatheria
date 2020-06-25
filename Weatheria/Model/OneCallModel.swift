@@ -9,32 +9,24 @@
 import Foundation
 
 struct OneCallModel {
-    let days: [Double]
-    let dts: [Int]
+    let day: Double
+    let dt: Int
     
-    init(days: [Double], dts: [Int]) {
-        self.days = days
-        self.dts = dts
+    init(day: Double, dt: Int) {
+        self.day = day
+        self.dt = dt
     }
     
-    func getDate() -> [String] {
+    func getDate() -> String {
         let format = DateFormatter()
-        var dates: [String] = []
-        for dt in dts {
-            let timeInterval = Double(dt)
-            format.dateFormat = "d MMM"
-            let date = format.string(from: Date(timeIntervalSince1970: timeInterval))
-            dates.append(date)
-        }
-        return dates
+        let timeInterval = Double(dt)
+        format.dateFormat = "d MMM"
+        let date = format.string(from: Date(timeIntervalSince1970: timeInterval))
+        return date
     }
     
-    func getTemps() -> [String] {
-        var temps: [String] = []
-        for day in days {
-            let temp = "\(day)°C"
-            temps.append(temp)
-        }
-        return temps
+    func getTemp() -> String {
+        let temp = "\(day)°C"
+        return temp
     }
 }
