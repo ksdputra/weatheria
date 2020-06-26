@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OneCallModel {
+struct DailyForecastModel {
     let day: Double
     let dt: Int
     let description: String

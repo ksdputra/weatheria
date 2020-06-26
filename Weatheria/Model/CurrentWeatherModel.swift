@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct WeatherModel {
+struct CurrentWeatherModel {
     let conditionID: Int
     let city: String
     let temp: Double

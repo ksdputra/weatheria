@@ -9,13 +9,13 @@
 import Foundation
 import CoreLocation
 
-protocol ForecastManagerDelegate {
-    func didUpdateForecast(forecasts: [OneCallModel])
+protocol DailyForecastManagerDelegate {
+    func didUpdateForecast(forecasts: [DailyForecastModel])
 }
 
-struct ForecastManager {
+struct DailyForecastManager {
     let url = "http://api.openweathermap.org/data/2.5/onecall?appid=e72ca729af228beabd5d20e3b7749713&units=metric&exclude=current,minutely,hourly"
-    var delegate: ForecastManagerDelegate?
+    var delegate: DailyForecastManagerDelegate?
     
     mutating func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let urlString = "\(url)&lat=\(latitude)&lon=\(longitude)"
@@ -55,16 +55,16 @@ struct ForecastManager {
         }
     }
     
-    func parseJSON(oneCallData: Data) -> [OneCallModel]? {
+    func parseJSON(oneCallData: Data) -> [DailyForecastModel]? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(OneCallData.self, from: oneCallData)
-            var oneCallModels: [OneCallModel] = []
+            let decodedData = try decoder.decode(DailyForecastData.self, from: oneCallData)
+            var oneCallModels: [DailyForecastModel] = []
             for daily in decodedData.daily {
                 let day = daily.temp.day
                 let dt = daily.dt
                 let description = daily.weather[0].description
-                let oneCallModel = OneCallModel(day: day, dt: dt, description: description)
+                let oneCallModel = DailyForecastModel(day: day, dt: dt, description: description)
                 oneCallModels.append(oneCallModel)
             }
             return oneCallModels

@@ -37,9 +37,9 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    var dailyForecast: [OneCallModel] = []
-    var weatherManager = WeatherManager()
-    var forecastManager = ForecastManager()
+    var dailyForecast: [DailyForecastModel] = []
+    var weatherManager = CurrentWeatherManager()
+    var forecastManager = DailyForecastManager()
     let locationManager = CLLocationManager()
     var timer = Timer()
     var timeZone: Double?
@@ -141,9 +141,9 @@ extension ViewController: UISearchBarDelegate {
 
 // MARK: - WeatherManagerDelegate
 
-extension ViewController: WeatherManagerDelegate {
+extension ViewController: CurrentWeatherManagerDelegate {
     
-    func didUpdateWeather(weather: WeatherModel) {
+    func didUpdateWeather(weather: CurrentWeatherModel) {
         cityLabel.text = weather.city
         timeZone = Double(weather.timeZone)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.tick) , userInfo: nil, repeats: true)
@@ -224,8 +224,8 @@ extension ViewController: CLLocationManagerDelegate {
 }
 
 // MARK: - ForecastManagerDelegate
-extension ViewController: ForecastManagerDelegate {
-    func didUpdateForecast(forecasts: [OneCallModel]) {
+extension ViewController: DailyForecastManagerDelegate {
+    func didUpdateForecast(forecasts: [DailyForecastModel]) {
         dailyForecast = []
         dailyForecast.append(contentsOf: forecasts)
         self.tableView.reloadData()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherData: Decodable {
+struct CurrentWeatherData: Decodable {
     let name: String
     let main: Main
     let weather: [Weather]

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OneCallData: Decodable {
+struct DailyForecastData: Decodable {
     let daily: [Daily]
 }
 

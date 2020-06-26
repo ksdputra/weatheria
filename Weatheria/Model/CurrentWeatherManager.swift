@@ -9,16 +9,16 @@
 import Foundation
 import CoreLocation
 
-protocol WeatherManagerDelegate {
-    func didUpdateWeather(weather: WeatherModel)
+protocol CurrentWeatherManagerDelegate {
+    func didUpdateWeather(weather: CurrentWeatherModel)
     func didNotFindWeather()
     func startSpinning()
     func stopSpinning()
 }
 
-struct WeatherManager {
+struct CurrentWeatherManager {
     let url = "https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
-    var delegate: WeatherManagerDelegate?
+    var delegate: CurrentWeatherManagerDelegate?
     
     mutating func fetchWeather(of cityName: String) {
         let city = cityName.replacingOccurrences(of: " ", with: "%20")
@@ -63,10 +63,10 @@ struct WeatherManager {
         }
     }
     
-    func parseJSON(weatherData: Data) -> WeatherModel? {
+    func parseJSON(weatherData: Data) -> CurrentWeatherModel? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            let decodedData = try decoder.decode(CurrentWeatherData.self, from: weatherData)
             let conditionID = decodedData.weather[0].id
             let city = decodedData.name
             let temp = decodedData.main.temp
@@ -82,7 +82,7 @@ struct WeatherManager {
             let clouds = decodedData.clouds.all
             let pressure = decodedData.main.pressure
             let timeZone = decodedData.timezone
-            let weather = WeatherModel(conditionID: conditionID, city: city, temp: temp, icon: icon, description: description, feelsLikeTemp: feelsLikeTemp, tempMin: tempMin, tempMax: tempMax, sunrise: sunrise, sunset: sunset, wind: wind, humidity: humidity, clouds: clouds, pressure: pressure, timeZone: timeZone)
+            let weather = CurrentWeatherModel(conditionID: conditionID, city: city, temp: temp, icon: icon, description: description, feelsLikeTemp: feelsLikeTemp, tempMin: tempMin, tempMax: tempMax, sunrise: sunrise, sunset: sunset, wind: wind, humidity: humidity, clouds: clouds, pressure: pressure, timeZone: timeZone)
             return weather
         } catch {
             print(error)
