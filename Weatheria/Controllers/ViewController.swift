@@ -35,8 +35,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourlyTableView: UITableView!
     @IBOutlet weak var dailyTableView: UITableView!
     var dailyForecast: [DailyForecastModel] = []
+    var hourlyForecast: [HourlyForecastModel] = []
     var currentWeatherManager = CurrentWeatherManager()
     var dailyForecastManager = DailyForecastManager()
+    var hourlyForecastManager = HourlyForecastManager()
     let locationManager = CLLocationManager()
     var timer = Timer()
     var timeZone: Double?
@@ -52,8 +54,13 @@ class ViewController: UIViewController {
         dailyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         dailyTableView.rowHeight = 68.5
         
+        hourlyTableView.dataSource = self
+        hourlyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
         currentWeatherManager.delegate = self
         dailyForecastManager.delegate = self
+        hourlyForecastManager.delegate = self
+        
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
@@ -128,6 +135,7 @@ extension ViewController: UISearchBarDelegate {
                 let lat = placemark?.location?.coordinate.latitude
                 let lon = placemark?.location?.coordinate.longitude
                 self.dailyForecastManager.fetchWeather(latitude: lat!, longitude: lon!)
+                self.hourlyForecastManager.fetchWeather(latitude: lat!, longitude: lon!)
             }
         }
         
@@ -208,6 +216,7 @@ extension ViewController: CLLocationManagerDelegate {
             let lon = location.coordinate.longitude
             currentWeatherManager.fetchWeather(latitude: lat, longitude: lon)
             dailyForecastManager.fetchWeather(latitude: lat, longitude: lon)
+            hourlyForecastManager.fetchWeather(latitude: lat, longitude: lon)
             currentLocationButton.isHidden = true
         }
     }
@@ -219,25 +228,48 @@ extension ViewController: CLLocationManagerDelegate {
 
 // MARK: - DailyForecastManagerDelegate
 
-extension ViewController: DailyForecastManagerDelegate {
+extension ViewController: DailyForecastManagerDelegate, HourlyForecastManagerDelegate {
     
     func didUpdateForecast(forecasts: [DailyForecastModel]) {
         dailyForecast = []
         dailyForecast.append(contentsOf: forecasts)
         self.dailyTableView.reloadData()
     }
+    
+    func didUpdateForecast(forecasts: [HourlyForecastModel]) {
+        hourlyForecast = []
+        hourlyForecast.append(contentsOf: forecasts)
+        self.hourlyTableView.reloadData()
+    }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyForecast.count
+        if tableView == dailyTableView {
+            return dailyForecast.count
+        } else if tableView == hourlyTableView {
+            return hourlyForecast.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
-        cell.dateLabel.text = dailyForecast[indexPath.row].getDate()
-        cell.tempLabel.text = dailyForecast[indexPath.row].getTemp()
-        cell.descriptionLabel.text = dailyForecast[indexPath.row].description
-        return cell
+        if tableView == dailyTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
+            cell.dateLabel.text = dailyForecast[indexPath.row].getDate()
+            cell.tempLabel.text = dailyForecast[indexPath.row].getTemp()
+            cell.descriptionLabel.text = dailyForecast[indexPath.row].description
+            return cell
+        } else if tableView == hourlyTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
+            cell.dateLabel.text = hourlyForecast[indexPath.row].getHour()
+            cell.tempLabel.text = hourlyForecast[indexPath.row].getTemp()
+            cell.descriptionLabel.text = hourlyForecast[indexPath.row].description
+            return cell
+        }
+        
+        return UITableViewCell()
     }
 }

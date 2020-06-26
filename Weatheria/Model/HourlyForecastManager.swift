@@ -1,21 +1,21 @@
 //
-//  ForecastManager.swift
+//  HourlyForecastManager.swift
 //  Weatheria
 //
-//  Created by Kharisma Putra on 24/06/20.
+//  Created by Kharisma Putra on 26/06/20.
 //  Copyright © 2020 Kharisma Putra. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-protocol DailyForecastManagerDelegate {
-    func didUpdateForecast(forecasts: [DailyForecastModel])
+protocol HourlyForecastManagerDelegate {
+    func didUpdateForecast(forecasts: [HourlyForecastModel])
 }
 
-struct DailyForecastManager {
-    let url = "http://api.openweathermap.org/data/2.5/onecall?appid=e72ca729af228beabd5d20e3b7749713&units=metric&exclude=current,minutely,hourly"
-    var delegate: DailyForecastManagerDelegate?
+struct HourlyForecastManager {
+    let url = "http://api.openweathermap.org/data/2.5/onecall?appid=e72ca729af228beabd5d20e3b7749713&units=metric&exclude=current,minutely,daily"
+    var delegate: HourlyForecastManagerDelegate?
     
     mutating func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let urlString = "\(url)&lat=\(latitude)&lon=\(longitude)"
@@ -51,16 +51,16 @@ struct DailyForecastManager {
         }
     }
     
-    func parseJSON(oneCallData: Data) -> [DailyForecastModel]? {
+    func parseJSON(oneCallData: Data) -> [HourlyForecastModel]? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(DailyForecastData.self, from: oneCallData)
-            var oneCallModels: [DailyForecastModel] = []
-            for daily in decodedData.daily {
-                let day = daily.temp.day
-                let dt = daily.dt
-                let description = daily.weather[0].description
-                let oneCallModel = DailyForecastModel(day: day, dt: dt, description: description)
+            let decodedData = try decoder.decode(HourlyForecastData.self, from: oneCallData)
+            var oneCallModels: [HourlyForecastModel] = []
+            for hourly in decodedData.hourly {
+                let temp = hourly.temp
+                let dt = hourly.dt
+                let description = hourly.weather[0].description
+                let oneCallModel = HourlyForecastModel(temp: temp, dt: dt, description: description)
                 oneCallModels.append(oneCallModel)
             }
             return oneCallModels
