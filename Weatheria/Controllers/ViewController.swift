@@ -84,14 +84,10 @@ extension ViewController {
             hourlyView.isHidden = true
             tableView.isHidden = true
         case 1:
-//            segmentedControl.selectedSegmentIndex = 0
-//            failedAlert()
             currentView.isHidden = true
             hourlyView.isHidden = false
             tableView.isHidden = true
         case 2:
-//            segmentedControl.selectedSegmentIndex = 0
-//            failedAlert()
             currentView.isHidden = true
             hourlyView.isHidden = true
             tableView.isHidden = false
