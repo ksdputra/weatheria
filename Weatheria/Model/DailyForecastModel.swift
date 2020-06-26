@@ -11,19 +11,22 @@ import Foundation
 struct DailyForecastModel {
     let day: Double
     let dt: Int
+    let timezone: Int
     let description: String
     
-    init(day: Double, dt: Int, description: String) {
+    init(day: Double, dt: Int, timezone: Int, description: String) {
         self.day = day
         self.dt = dt
+        self.timezone = timezone
         self.description = description
     }
     
     func getDate() -> String {
-        let format = DateFormatter()
+        let formatter = DateFormatter()
         let timeInterval = Double(dt)
-        format.dateFormat = "d MMM"
-        let date = format.string(from: Date(timeIntervalSince1970: timeInterval))
+        formatter.dateFormat = "d MMM"
+        formatter.timeZone = TimeZone(secondsFromGMT: timezone)
+        let date = formatter.string(from: Date(timeIntervalSince1970: timeInterval))
         return date
     }
     

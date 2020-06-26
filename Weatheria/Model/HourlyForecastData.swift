@@ -9,6 +9,7 @@
 import Foundation
 
 struct HourlyForecastData: Decodable {
+    let timezone_offset: Int
     let hourly: [Hourly]
 }
 

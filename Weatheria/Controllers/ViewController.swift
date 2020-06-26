@@ -51,11 +51,11 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         
         dailyTableView.dataSource = self
-        dailyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        dailyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "DailyCell")
         dailyTableView.rowHeight = 68.5
         
         hourlyTableView.dataSource = self
-        hourlyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        hourlyTableView.register(UINib(nibName: "HourlyTableViewCell", bundle: nil), forCellReuseIdentifier: "HourlyCell")
         
         currentWeatherManager.delegate = self
         dailyForecastManager.delegate = self
@@ -150,7 +150,7 @@ extension ViewController: CurrentWeatherManagerDelegate {
     
     func didUpdateWeather(weather: CurrentWeatherModel) {
         cityLabel.text = weather.city
-        timeZone = Double(weather.timeZone)
+        timeZone = Double(weather.timezone)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.tick) , userInfo: nil, repeats: true)
         tempLabel.text = weather.getTemp()
         setImage(from: weather.getImageUrl())
@@ -257,13 +257,13 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == dailyTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DailyCell", for: indexPath) as! DailyTableViewCell
             cell.dateLabel.text = dailyForecast[indexPath.row].getDate()
             cell.tempLabel.text = dailyForecast[indexPath.row].getTemp()
             cell.descriptionLabel.text = dailyForecast[indexPath.row].description
             return cell
         } else if tableView == hourlyTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DailyTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyCell", for: indexPath) as! HourlyTableViewCell
             cell.dateLabel.text = hourlyForecast[indexPath.row].getHour()
             cell.tempLabel.text = hourlyForecast[indexPath.row].getTemp()
             cell.descriptionLabel.text = hourlyForecast[indexPath.row].description

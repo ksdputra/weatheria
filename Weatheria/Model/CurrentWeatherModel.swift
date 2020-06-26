@@ -23,7 +23,7 @@ struct CurrentWeatherModel {
     let humidity: Int
     let clouds: Int
     let pressure: Int
-    let timeZone: Int
+    let timezone: Int
     
     var conditionColor: UIColor {
         switch conditionID {
@@ -50,7 +50,7 @@ struct CurrentWeatherModel {
         return String(format: "%.1f", temp)
     }
     
-    init(conditionID: Int, city: String, temp: Double, icon: String, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, clouds: Int, pressure: Int, timeZone: Int) {
+    init(conditionID: Int, city: String, temp: Double, icon: String, description: String, feelsLikeTemp: Double, tempMin: Double, tempMax: Double, sunrise: Date, sunset: Date, wind: Double, humidity: Int, clouds: Int, pressure: Int, timezone: Int) {
         self.conditionID = conditionID
         self.city = city
         self.temp = temp
@@ -65,13 +65,13 @@ struct CurrentWeatherModel {
         self.humidity = humidity
         self.clouds = clouds
         self.pressure = pressure
-        self.timeZone = timeZone
+        self.timezone = timezone
     }
     
     func sunFormatter(data: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        formatter.timeZone = TimeZone(secondsFromGMT: timeZone)
+        formatter.timeZone = TimeZone(secondsFromGMT: timezone)
         return formatter.string(from: data)
     }
     

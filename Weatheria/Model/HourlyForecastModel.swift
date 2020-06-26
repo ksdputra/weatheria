@@ -11,19 +11,22 @@ import Foundation
 struct HourlyForecastModel {
     let temp: Double
     let dt: Int
+    let timezone: Int
     let description: String
     
-    init(temp: Double, dt: Int, description: String) {
+    init(temp: Double, dt: Int, timezone: Int, description: String) {
         self.temp = temp
         self.dt = dt
+        self.timezone = timezone
         self.description = description
     }
     
     func getHour() -> String {
-        let format = DateFormatter()
+        let formatter = DateFormatter()
         let timeInterval = Double(dt)
-        format.dateFormat = "HH:mm"
-        let hour = format.string(from: Date(timeIntervalSince1970: timeInterval))
+        formatter.dateFormat = "d MMM HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: timezone)
+        let hour = formatter.string(from: Date(timeIntervalSince1970: timeInterval))
         return hour
     }
     

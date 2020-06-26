@@ -59,8 +59,9 @@ struct HourlyForecastManager {
             for hourly in decodedData.hourly {
                 let temp = hourly.temp
                 let dt = hourly.dt
+                let timezone = decodedData.timezone_offset
                 let description = hourly.weather[0].description
-                let oneCallModel = HourlyForecastModel(temp: temp, dt: dt, description: description)
+                let oneCallModel = HourlyForecastModel(temp: temp, dt: dt, timezone: timezone, description: description)
                 oneCallModels.append(oneCallModel)
             }
             return oneCallModels
