@@ -132,10 +132,13 @@ extension ViewController: UISearchBarDelegate {
             CLGeocoder().geocodeAddressString(cityName) {
                 placemarks, error in
                 let placemark = placemarks?.first
-                let lat = placemark?.location?.coordinate.latitude
-                let lon = placemark?.location?.coordinate.longitude
-                self.dailyForecastManager.fetchWeather(latitude: lat!, longitude: lon!)
-                self.hourlyForecastManager.fetchWeather(latitude: lat!, longitude: lon!)
+                let latitude = placemark?.location?.coordinate.latitude
+                let longitude = placemark?.location?.coordinate.longitude
+                if let lat = latitude, let lon = longitude {
+                    self.dailyForecastManager.fetchWeather(latitude: lat, longitude: lon)
+                    self.hourlyForecastManager.fetchWeather(latitude: lat, longitude: lon)
+                }
+                
             }
         }
         
