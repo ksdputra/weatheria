@@ -32,10 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var currentView: UIView!
     
-    @IBOutlet weak var hourlyView: UIView!
-    @IBOutlet weak var hourlyLabel: UILabel!
-    
-    
+    @IBOutlet weak var hourlyTableView: UITableView!
     @IBOutlet weak var dailyTableView: UITableView!
     var dailyForecast: [DailyForecastModel] = []
     var currentWeatherManager = CurrentWeatherManager()
@@ -61,7 +58,7 @@ class ViewController: UIViewController {
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
         currentView.isHidden = false
-        hourlyView.isHidden = true
+        hourlyTableView.isHidden = true
         dailyTableView.isHidden = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -81,15 +78,15 @@ extension ViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             currentView.isHidden = false
-            hourlyView.isHidden = true
+            hourlyTableView.isHidden = true
             dailyTableView.isHidden = true
         case 1:
             currentView.isHidden = true
-            hourlyView.isHidden = false
+            hourlyTableView.isHidden = false
             dailyTableView.isHidden = true
         case 2:
             currentView.isHidden = true
-            hourlyView.isHidden = true
+            hourlyTableView.isHidden = true
             dailyTableView.isHidden = false
         default:
             break
@@ -139,7 +136,7 @@ extension ViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - WeatherManagerDelegate
+// MARK: - CurrentWeatherManagerDelegate
 
 extension ViewController: CurrentWeatherManagerDelegate {
     
@@ -160,9 +157,6 @@ extension ViewController: CurrentWeatherManagerDelegate {
         cloudsLabel.text = weather.getClouds()
         pressureLabel.text = weather.getPressure()
         backgroundView.backgroundColor = weather.conditionColor
-        
-        hourlyLabel.text = "HOURLY!!"
-        
     }
     
     func didNotFindWeather() {
@@ -223,15 +217,15 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: - ForecastManagerDelegate
+// MARK: - DailyForecastManagerDelegate
+
 extension ViewController: DailyForecastManagerDelegate {
+    
     func didUpdateForecast(forecasts: [DailyForecastModel]) {
         dailyForecast = []
         dailyForecast.append(contentsOf: forecasts)
         self.dailyTableView.reloadData()
     }
-    
-    
 }
 
 extension ViewController: UITableViewDataSource {
