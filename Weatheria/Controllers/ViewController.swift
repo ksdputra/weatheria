@@ -36,10 +36,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourlyLabel: UILabel!
     
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dailyTableView: UITableView!
     var dailyForecast: [DailyForecastModel] = []
-    var weatherManager = CurrentWeatherManager()
-    var forecastManager = DailyForecastManager()
+    var currentWeatherManager = CurrentWeatherManager()
+    var dailyForecastManager = DailyForecastManager()
     let locationManager = CLLocationManager()
     var timer = Timer()
     var timeZone: Double?
@@ -51,18 +51,18 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        tableView.rowHeight = 68.5
+        dailyTableView.dataSource = self
+        dailyTableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        dailyTableView.rowHeight = 68.5
         
-        weatherManager.delegate = self
-        forecastManager.delegate = self
+        currentWeatherManager.delegate = self
+        dailyForecastManager.delegate = self
         areaSearchBar.delegate = self
         activityIndicatorView.isHidden = true
         currentLocationButton.isHidden = true
         currentView.isHidden = false
         hourlyView.isHidden = true
-        tableView.isHidden = true
+        dailyTableView.isHidden = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -82,15 +82,15 @@ extension ViewController {
         case 0:
             currentView.isHidden = false
             hourlyView.isHidden = true
-            tableView.isHidden = true
+            dailyTableView.isHidden = true
         case 1:
             currentView.isHidden = true
             hourlyView.isHidden = false
-            tableView.isHidden = true
+            dailyTableView.isHidden = true
         case 2:
             currentView.isHidden = true
             hourlyView.isHidden = true
-            tableView.isHidden = false
+            dailyTableView.isHidden = false
         default:
             break
         }
@@ -122,7 +122,7 @@ extension ViewController: UISearchBarDelegate {
             self.present(alertController, animated: true, completion: nil)
         } else if let cityName = areaSearchBar.text {
             // For current weather
-            weatherManager.fetchWeather(of: cityName)
+            currentWeatherManager.fetchWeather(of: cityName)
             
             // For forecast weather
             CLGeocoder().geocodeAddressString(cityName) {
@@ -130,7 +130,7 @@ extension ViewController: UISearchBarDelegate {
                 let placemark = placemarks?.first
                 let lat = placemark?.location?.coordinate.latitude
                 let lon = placemark?.location?.coordinate.longitude
-                self.forecastManager.fetchWeather(latitude: lat!, longitude: lon!)
+                self.dailyForecastManager.fetchWeather(latitude: lat!, longitude: lon!)
             }
         }
         
@@ -212,8 +212,8 @@ extension ViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            weatherManager.fetchWeather(latitude: lat, longitude: lon)
-            forecastManager.fetchWeather(latitude: lat, longitude: lon)
+            currentWeatherManager.fetchWeather(latitude: lat, longitude: lon)
+            dailyForecastManager.fetchWeather(latitude: lat, longitude: lon)
             currentLocationButton.isHidden = true
         }
     }
@@ -228,7 +228,7 @@ extension ViewController: DailyForecastManagerDelegate {
     func didUpdateForecast(forecasts: [DailyForecastModel]) {
         dailyForecast = []
         dailyForecast.append(contentsOf: forecasts)
-        self.tableView.reloadData()
+        self.dailyTableView.reloadData()
     }
     
     
