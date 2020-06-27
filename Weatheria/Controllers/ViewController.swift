@@ -167,7 +167,7 @@ extension ViewController: CurrentWeatherManagerDelegate {
         humidityLabel.text = weather.getHumidity()
         cloudsLabel.text = weather.getClouds()
         pressureLabel.text = weather.getPressure()
-        backgroundView.backgroundColor = weather.conditionColor
+//        currentView.backgroundColor = weather.conditionColor
     }
     
     func didNotFindWeather() {
