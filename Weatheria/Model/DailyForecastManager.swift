@@ -57,11 +57,12 @@ struct DailyForecastManager {
             let decodedData = try decoder.decode(DailyForecastData.self, from: oneCallData)
             var oneCallModels: [DailyForecastModel] = []
             for daily in decodedData.daily {
+                let id = daily.weather[0].id
                 let day = daily.temp.day
                 let dt = daily.dt
                 let timezone = decodedData.timezone_offset
                 let description = daily.weather[0].description
-                let oneCallModel = DailyForecastModel(day: day, dt: dt, timezone: timezone, description: description)
+                let oneCallModel = DailyForecastModel(id: id, day: day, dt: dt, timezone: timezone, description: description)
                 oneCallModels.append(oneCallModel)
             }
             return oneCallModels

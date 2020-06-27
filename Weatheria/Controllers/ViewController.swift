@@ -229,7 +229,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: - DailyForecastManagerDelegate
+// MARK: - DailyForecastManagerDelegate, HourlyForecastManagerDelegate
 
 extension ViewController: DailyForecastManagerDelegate, HourlyForecastManagerDelegate {
     
@@ -264,12 +264,14 @@ extension ViewController: UITableViewDataSource {
             cell.dateLabel.text = dailyForecast[indexPath.row].getDate()
             cell.tempLabel.text = dailyForecast[indexPath.row].getTemp()
             cell.descriptionLabel.text = dailyForecast[indexPath.row].description
+            cell.backgroundColor = dailyForecast[indexPath.row].conditionColor
             return cell
         } else if tableView == hourlyTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyCell", for: indexPath) as! HourlyTableViewCell
             cell.dateLabel.text = hourlyForecast[indexPath.row].getHour()
             cell.tempLabel.text = hourlyForecast[indexPath.row].getTemp()
             cell.descriptionLabel.text = hourlyForecast[indexPath.row].description
+            cell.backgroundColor = hourlyForecast[indexPath.row].conditionColor
             return cell
         }
         
