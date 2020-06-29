@@ -1,5 +1,9 @@
 # WEATHERIA
 
+![light-mode](Documentation/light.png)
+![dark-mode](Documentation/dark.png)
+
+
 - Swift version: 5.2
 - iOS version: 13.5
 - For now, the UI only applied to iPhone 11 
@@ -15,15 +19,17 @@ MVP:
   - User can search for the city
   - User can tap on location button to look at current location weather forecast
   - User can see the City Name with the date, day, and clock
-2. v0.2.0 (in progress)
+2. v0.2.0 (finished)
   - User can see hourly and daily forecast
   - Testing negative case
   - Doing some UI change
 3. v0.3.0 
-  - User can see (2) plus see details of hourly and daily forecast;
+  - Change the controllers
+  - Change the logic architecture
+  - User can see details of hourly and daily forecast;
 4. v0.4.0 
-  - User can see (3) + change the unit to celcius or fahrenheit;
+  - User can change the unit to celcius or fahrenheit;
 5. v.0.5.0
   - Change the UI significantly;
-  6. v0.6.0 and up
-    - (no clue)
+6. v0.6.0 and up
+  - (no clue)
